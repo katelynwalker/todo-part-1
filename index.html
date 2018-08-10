@@ -22,7 +22,7 @@
         <section class="theList">
             <ol>
                 <li ng-repeat="item in todo.list" ng-class="{firstClass:item.completed}">
-                    <button type ="button" ng-If="{firstClass:item.completed}" class="complete">Complete</button>
+                    <button type ="button" ng-If="item.completed === false" class="complete">Complete</button>
                         {{ item.task }}
                     <button type ="button"class="x">
                         <i class="material-icons">close</i>

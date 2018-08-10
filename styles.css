@@ -35,6 +35,10 @@ body{
     padding:5px;
     margin-right:5px;
 }
+.complete:hover{
+    background-color:#ff1493;
+    color:white;
+}
 
 .add{
     background-color:#ff1493;
