@@ -19,6 +19,26 @@ function ToDoController(){
             completed:false
         }
     ]
+    vm.addTask = (newTask) => {
+                vm.list.push({
+                    task: newTask,
+                    completed: false
+                });
+            }
+
+    vm.removeTask = (index) => {
+                vm.list.splice(index,1)
+    };
+
+    vm.completeTask = (index) => {
+        vm.list[index].completed = true;
+    }
+
+    vm.editTask = (index) => {
+        vm.list[index].display = "none";
+
+    }
+
    
 }
 

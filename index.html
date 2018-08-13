@@ -13,25 +13,30 @@
 </head>
 
 <body>
-    <section class="container">
+    <section class="container"  ng-controller="ToDoController as todo">
     <h1>TODO List</h1>
     <h4>A place to store the things you have to do!</h4>
-    <input type="text" placeholder ="filter your to-dos">
+    <input type="text" placeholder ="filter your to-dos" ng-model="sort">
 
-    <section ng-controller="ToDoController as todo">
+    <section>
         <section class="theList">
             <ol>
-                <li ng-repeat="item in todo.list" ng-class="{firstClass:item.completed}">
-                    <button type ="button" ng-If="item.completed === false" class="complete">Complete</button>
+                <li ng-repeat="item in todo.list | filter: sort track by $index" ng-class="{firstClass:item.completed}">
+                    <button type ="button" ng-click ="todo.completeTask($index);" ng-If="item.completed === false" class="complete">Complete</button>
                         {{ item.task }}
-                    <button type ="button"class="x">
+                    <button type ="button" ng-click="todo.removeTask($index);"class="x">
                         <i class="material-icons">close</i>
-                        </button></li>
+                        </button>
+                    <button class="edit" ng-click"editTask($index)">Edit</button>
+                    </li>
+
             </ol>
         </section>
 
-    <input type="text" placeholder ="Add your to-do">
-    <button type="button" class ="add">Add</button>
+   
+        <input ng-model="task" type="text" placeholder ="Add your to-do">
+        <button type="button" ng-click= "todo.addTask(task)" class ="add">Add</button>
+ 
 </section>
     
 

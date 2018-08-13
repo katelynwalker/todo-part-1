@@ -86,3 +86,6 @@ li:hover{
     background-color:#eee;
     border-radius:5px;
 }
+.edit{
+    float:right;
+}
